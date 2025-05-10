@@ -84,44 +84,54 @@
     </footer>
     <script>
         async function loadProjects() {
-            try {
-                const response = await fetch('projects.json');
-                const projects = await response.json();
-                const projectsContainer = document.getElementById('projects-container');
+    try {
+        const response = await fetch('projects.json');
+        const projects = await response.json();
+        const projectsContainer = document.getElementById('projects-container');
 
-                projects.forEach(project => {
-                    const projectDiv = document.createElement('div');
-                    projectDiv.classList.add('portfolio');
+        projects.forEach(project => {
+            const projectDiv = document.createElement('div');
+            projectDiv.classList.add('portfolio');
 
-                    projectDiv.innerHTML = `
-                        <div class="portfolio-cover">
-                            <img src="<span class="math-inline">\{project\.mainImage\}" alt\="</span>{project.title}" />
-                        </div>
-                        <div class="portfolio-info">
-                            <h4>${project.title}</h4>
-                            <div class="portfolio-tags">
-                                ${project.technologies.split(', ').map(tech => `<div>${tech.trim()}</div>`).join('')}
-                            </div>
-                            <p>${project.description.substring(0, 150)}...</p>
-                            <a href="detail_portfolio.html?id=${projects.indexOf(project)}" class="portfolio-link">
-                                View Details
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z" />
-                                </svg>
-                            </a>
-                        </div>
-                    `;
-
-                    projectsContainer.appendChild(projectDiv);
-                });
-
-            } catch (error) {
-                console.error('Gagal memuat data proyek:', error);
-                projectsContainer.innerHTML = '<p>Gagal memuat data proyek.</p>';
+            let mainImageSrc = project.mainImage;
+            if (project.mainImage && project.mainImage.includes('drive.google.com/file/d/')) {
+                // Ekstrak ID file dari URL Google Drive
+                const regex = /\/d\/([a-zA-Z0-9_-]+)\//;
+                const match = project.mainImage.match(regex);
+                if (match && match[1]) {
+                    mainImageSrc = `https://drive.google.com/thumbnail?id=${match[1]}`;
+                }
             }
-        }
 
-        loadProjects();
+            projectDiv.innerHTML = `
+                <div class="portfolio-cover">
+                    <img src="${mainImageSrc}" alt="${project.title}" />
+                </div>
+                <div class="portfolio-info">
+                    <h4>${project.title}</h4>
+                    <div class="portfolio-tags">
+                        ${project.technologies.split(', ').map(tech => `<div>${tech.trim()}</div>`).join('')}
+                    </div>
+                    <p>${project.description.substring(0, 150)}...</p>
+                    <a href="detail_portfolio.html?id=${projects.indexOf(project)}" class="portfolio-link">
+                        View Details
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M6 17c2.269-9.881 11-11.667 11-11.667v-3.333l7 6.637-7 6.696v-3.333s-6.17-.171-11 5zm12 .145v2.855h-16v-12h6.598c.768-.787 1.561-1.449 2.339-2h-10.937v16h20v-6.769l-2 1.914z" />
+                        </svg>
+                    </a>
+                </div>
+            `;
+
+            projectsContainer.appendChild(projectDiv);
+        });
+
+    } catch (error) {
+        console.error('Gagal memuat data proyek:', error);
+        projectsContainer.innerHTML = '<p>Gagal memuat data proyek.</p>';
+    }
+}
+
+loadProjects();
     </script>
     <script src="js/main.js"></script>
     <script src="js/theme-toggle.js"></script>
