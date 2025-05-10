@@ -24,5 +24,39 @@
       "duration": "3 bulan",
       "date": "Januari - Maret 2025"
     }
+  },
+  {
+  "title": "Kalkulator Sederhana Python Tkinter",
+  "category": "Python GUI Application",
+  "technologies": "Python, Tkinter",
+  "mainImage": "https://drive.google.com/thumbnail?id=19eNXBm6i9QSQutVO6r9TV0sshfPIBm44",
+  "description": "Kalkulator sederhana menggunakan Python dan Tkinter dengan tampilan modern dan warna lembut. Fitur: penambahan, pengurangan, perkalian, pembagian, clear, backspace, dan auto-formatting hasil. Cocok untuk berbagai usia dengan antarmuka yang mudah digunakan.",
+  "detailImage1": "https://drive.google.com/thumbnail?id=19rCeBgL0LZiiJHin6lxM0Qf8nyM_2252",
+  "challenge": "Membuat aplikasi kalkulator GUI yang sederhana, mudah digunakan, dan mencakup operasi matematika dasar serta beberapa fungsi tambahan.",
+  "solution": "Menggunakan Python dan pustaka Tkinter untuk membangun antarmuka pengguna. Mengimplementasikan fungsi untuk setiap tombol operasi dan menggunakan fungsi `eval()` untuk mengevaluasi ekspresi matematika.",
+  "detailImage2": "https://drive.google.com/thumbnail?id=19fi-oujfrQfzMfFHvQkrsaOciIKp9MMm",
+  "features": [
+    "Operasi matematika dasar: penjumlahan (+), pengurangan (-), perkalian (*), dan pembagian (/)",
+    "Fungsi Clear (C) untuk menghapus seluruh input",
+    "Fungsi Backspace (DEL) untuk menghapus karakter terakhir",
+    "Fungsi akar kuadrat (sqrt)",
+    "Fungsi pangkat (^)",
+    "Fungsi logaritma (log)",
+    "Fungsi trigonometri: sin, cos, tan",
+    "Validasi input keyboard untuk memastikan hanya karakter yang valid yang dapat dimasukkan",
+    "Antarmuka pengguna yang sederhana dan mudah digunakan",
+    "Auto-formatting hasil (bergantung pada output `eval()`)"
+  ],
+  "impact": "Proyek ini cocok untuk pemula yang ingin mempelajari dasar-dasar Python dan pembuatan GUI menggunakan Tkinter. Menunjukkan implementasi operasi matematika dan penanganan input pengguna dalam aplikasi GUI.",
+  "sidebar": {
+    "category": "Python GUI Application",
+    "client": "Proyek Pribadi",
+    "duration": "Singkat",
+    "date": "Dibuat sekitar 10 bulan lalu (berdasarkan aktivitas GitHub)"
+  },
+  "githubUrl": "https://github.com/JessicaAurelClarista/kalkulator",
+  "liveDemoUrl": null,
+  "apkUrl": null,
+  "detailImageUrl": null
   }
 ]
