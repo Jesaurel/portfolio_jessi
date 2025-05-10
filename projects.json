@@ -92,5 +92,40 @@
   "liveDemoUrl": null,
   "apkUrl": null,
   "detailImageUrl": null
-  }
+  },
+      {
+      "title": "Aplikasi To-Do List Desktop (Python, Tkinter)",
+      "category": "Aplikasi Desktop",
+      "technologies": "Python, Tkinter",
+      "mainImage": "URL_SCREENSHOT_APLIKASI",
+      "description": "Aplikasi To-Do List desktop yang dibangun dengan Python dan Tkinter, menyediakan antarmuka pengguna yang intuitif untuk mengelola tugas. Aplikasi ini memiliki tema gelap yang modern dan fitur-fitur penting untuk meningkatkan produktivitas.",
+      "detailImage1": "URL_SCREENSHOT_TAMBAH_TUGAS",
+      "challenge": "Membangun aplikasi desktop yang responsif dan mudah digunakan untuk manajemen tugas, dengan fokus pada desain antarmuka yang bersih dan tema gelap.",
+      "solution": "Mengembangkan GUI menggunakan Tkinter, dengan struktur aplikasi yang modular menggunakan frame dan label. Mengimplementasikan fungsi-fungsi untuk menambah, mengedit, menghapus, dan menyelesaikan tugas. Menggunakan dialog kustom untuk input pengguna dan menerapkan tema gelap yang konsisten.",
+      "detailImage2": "URL_SCREENSHOT_DAFTAR_TUGAS",
+      "features": [
+        "Tambah tugas baru dengan dialog input kustom",
+        "Edit tugas yang sudah ada",
+        "Hapus tugas individual",
+        "Tandai tugas sebagai selesai",
+        "Hapus semua tugas",
+        "Tema gelap yang konsisten",
+        "Tata letak responsif",
+        "Penggunaan font Poppins",
+        "Dialog kustom untuk interaksi pengguna"
+      ],
+      "impact": "Aplikasi ini memberikan solusi yang sederhana dan efisien untuk mengelola tugas di desktop. Proyek ini menunjukkan kemampuan dalam pengembangan aplikasi GUI Python dengan Tkinter dan pemahaman tentang prinsip-prinsip desain antarmuka pengguna.",
+      "sidebar": {
+        "category": "Aplikasi Desktop",
+        "client": "Proyek Pribadi",
+        "duration": "Singkat",
+        "date": "2025"
+      },
+      "githubUrl": "https://github.com/Jesaurel/your-todo-list-repo",
+      "liveDemoUrl": null,
+      "apkUrl": null,
+      "detailImageUrl": null,
+      "videoDemoUrl": "URL_VIDEO_DEMO"
+    }
+    
 ]
