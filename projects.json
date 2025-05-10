@@ -1,0 +1,26 @@
+{
+  "title": "Website Catering Online",
+  "category": "Web Development",
+  "technologies": "PHP, JavaScript, SCSS, HTML, CSS",
+  "mainImage": "web-catering-main.jpg",
+  "description": "Website catering online yang memudahkan pelanggan memesan berbagai paket menu catering seperti nasi box, snack box, prasmanan, dan tumpeng. Website ini memiliki dua role utama yaitu user dan admin, dengan fitur lengkap untuk pemesanan, manajemen menu, serta laporan penjualan.",
+  "detailImage1": "dashboard_admin.png",
+  "challenge": "Membangun sistem catering online dari nol dengan alur login, pemesanan, manajemen menu, dan laporan, serta memastikan keamanan data dan kemudahan penggunaan.",
+  "solution": "Menggunakan validasi PHP, manajemen session, dan desain responsif berbasis SCSS dan Tailwind CSS. Penerapan flow login dengan role-based access untuk membedakan akses user dan admin.",
+  "detailImage2": "HomePage1.png",
+  "features": [
+    "Halaman utama (Homepage) yang bisa diakses tanpa login",
+    "Autentikasi Login & Register (Role User & Admin)",
+    "User dapat memesan catering, edit profil, memberi ulasan, dan melihat histori pesanan",
+    "Admin dashboard untuk CRUD menu & kategori, kelola user, ubah status pesanan, dan melihat laporan",
+    "Status pesanan: diproses, dikirim, selesai",
+    "Layout responsif untuk desktop dan mobile"
+  ],
+  "impact": "Project ini merupakan tugas akhir (projek mandiri) untuk memenuhi syarat kelulusan SMK jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Website ini berhasil menyelesaikan studi kasus bisnis catering dan digunakan dalam simulasi pemesanan riil.",
+  "sidebar": {
+    "category": "Web Development",
+    "client": "Tugas Akhir SMK (Projek Mandiri)",
+    "duration": "3 bulan",
+    "date": "Januari - Maret 2025"
+  }
+}

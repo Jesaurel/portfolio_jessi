@@ -1,0 +1,746 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+  --primaryTextColor: #232e35;
+  --secondaryTextColor: #656d72;
+  --borderColor: #e0e0e0;
+  --lineColor: #d0d0d0;
+  --primaryBackgroundColor: #f4f7fa;
+  --secondaryBackgroundColor: #e9eef2;
+  --thirdBackgroundColor: #dee7f0;
+  --primaryIconColor: #4a90e2;
+  --primaryIconColorHover: #3b7ac9;
+  --sectionPadding: 6rem 0;
+  --itemBorderRadius: 1rem;
+
+  --dark-primaryTextColor: #f5f5f5;
+  --dark-secondaryTextColor: #c7c7c7;
+  --dark-borderColor: #3a3a3a;
+  --dark-lineColor: #4a4a4a;
+  --dark-primaryBackgroundColor: #1c1c1c;
+  --dark-secondaryBackgroundColor: #2b2b2b;
+  --dark-thirdBackgroundColor: #373737;
+  --dark-primaryIconColor: #fbd786;
+  --dark-primaryIconColorHover: #f5c851;
+}
+
+[data-theme="dark"] {
+  --primaryTextColor: var(--dark-primaryTextColor);
+  --secondaryTextColor: var(--dark-secondaryTextColor);
+  --borderColor: var(--dark-borderColor);
+  --lineColor: var(--dark-lineColor);
+  --primaryBackgroundColor: var(--dark-primaryBackgroundColor);
+  --secondaryBackgroundColor: var(--dark-secondaryBackgroundColor);
+  --thirdBackgroundColor: var(--dark-thirdBackgroundColor);
+  --primaryIconColor: var(--dark-primaryIconColor);
+  --primaryIconColorHover: var(--dark-primaryIconColorHover);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primaryBackgroundColor);
+  color: var(--secondaryTextColor);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  color: var(--primaryTextColor);
+}
+
+p {
+  font-size: 1rem; /* 16 px */
+  line-height: 1.9rem; /*30.4 px */
+}
+
+p,
+span,
+label,
+input,
+textarea,
+li {
+  color: var(--secondaryTextColor);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* End Preparation */
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 90%;
+  }
+}
+
+/* Buttons */
+.btn {
+  padding: 1rem 1.5rem;
+  background: var(--secondaryBackgroundColor);
+  border: 1.5px solid var(--borderColor);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: var(--itemBorderRadius);
+  box-shadow: inset 2px 2px 5px rgba(255,255,255,0.5), inset -2px -2px 5px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1), inset -1px -1px 3px rgba(255,255,255,0.3);
+}
+
+/* Titles */
+.section-title {
+  margin: 1rem 0 4rem;
+  font-size: 2rem;
+}
+
+.pre-title {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: var(--secondaryTextColor);
+  position: relative;
+  padding-left: 40px;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.pre-title::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--lineColor);
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+}
+
+/* Layouts */
+.grid-3 {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; use this first, use code below when its time for explaining responsive design part */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+/* --- Logo and Navigation Menu --- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.logo a {
+  color: var(--primaryTextColor);
+}
+
+/* Navigation Menu */
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  color: var(--primaryTextColor);
+}
+
+/* Burger - Save for later on video */
+.burger div {
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  margin: 7px;
+  transition: all 0.3s;
+  z-index: 99;
+}
+
+.burger {
+  display: none;
+  z-index: 99;
+  position: fixed;
+  top: 33px;
+  right: 35px;
+}
+
+/* Hero Section */
+#hero {
+  height: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* We're not going to use automatic template columns, because we need to know when the columns is go below. So we can exchange the order of the element */
+  align-items: center;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+}
+
+.hero-name span {
+  color: var(--primaryIconColor) !important;
+}
+
+.hero-right img {
+  width: 90%;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* Services Section */
+#services {
+  background-color: var(--secondaryBackgroundColor);
+  padding: var(--sectionPadding);
+}
+
+.services .pre-title {
+  margin: 0 auto;
+}
+
+.services-title {
+  text-align: center;
+}
+
+.service {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--primaryBackgroundColor);
+  border-radius: var(--itemBorderRadius);
+}
+
+.service h4 {
+  margin: 1.5rem 0;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.service-icon {
+  background: var(--thirdBackgroundColor);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 1.3rem;
+  border-radius: 0.5rem;
+}
+
+.service-icon svg {
+  fill: var(--primaryIconColor);
+}
+
+.service-icon {
+  background: var(--thirdBackgroundColor);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem 1.3rem;
+  border-radius: 0.5rem;
+}
+
+.service-icon svg {
+  fill: var(--primaryIconColor);
+}
+
+/* Portfolios */
+.portfolios {
+  padding: var(--sectionPadding);
+}
+
+.portfolio {
+  will-change: transform, box-shadow;
+  border-radius: var(--itemBorderRadius);
+  overflow: hidden;
+  border: 1px solid var(--borderColor);
+  /* Tambahkan properti berikut untuk efek bayangan 3D */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan dasar */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Tetap pertahankan transisi untuk hover */
+}
+
+.portfolio:hover {
+  /* Efek sedikit mengangkat dan memberikan bayangan yang lebih kuat saat dihover */
+  transform: translateY(-5px) perspective(500px) rotateX(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+}
+
+.portfolio-cover {
+  height: 250px;
+}
+
+.portfolio img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.portfolio:hover .portfolio-cover img {
+  transform: scale(1.05);
+}
+
+.portfolio-info {
+  padding: 2rem 1.5rem;
+  background-color: var(--primaryBackgroundColor);
+}
+
+.portfolio-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portfolio h4 {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.portfolio-title a svg:hover {
+  fill: var(--primaryIconColor);
+}
+
+.portfolio-title a svg {
+  transition: 0.2s ease-in-out;
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.portfolio-tags div {
+  font-size: 0.9rem;
+  border: 1px solid var(--borderColor);
+  padding: 0.4rem 1rem;
+  color: var(--secondaryTextColor);
+  background-color: var(--secondaryBackgroundColor);
+}
+
+/* Skills and Education */
+#skills {
+  padding: var(--sectionPadding);
+  background: var(--secondaryBackgroundColor);
+}
+
+.skills-grid {
+  display: grid;
+  /* grid-template-columns: 40% 60%; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.education {
+  display: flex;
+  gap: 1rem;
+}
+
+.education .line {
+  padding: 0 0.7rem;
+}
+
+.education .line div {
+  width: 2px;
+  height: 100%;
+  background: var(--borderColor);
+  position: relative;
+}
+
+.education-info p {
+  margin: 0.6rem 0 1.4rem;
+}
+
+.education-years {
+  margin-bottom: 3rem;
+}
+
+/* The dot on the line */
+.education .line div:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: var(--borderColor);
+  border-radius: 50%;
+  position: absolute;
+  left: -6px;
+}
+
+/* Right side of Skills */
+.skills-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1.5rem;
+}
+
+.skills-right ul {
+  line-height: 2rem;
+  padding: 0 1rem;
+}
+
+/* Contact Section */
+#contact {
+  padding: var(--sectionPadding);
+}
+
+.contact {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.contact-form div {
+  margin-bottom: 1.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  font-family: "Roboto", sans-serif;
+  background: var(--secondaryBackgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 3px;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9d9fa1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #7d7d7d;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  background-color: var(--primaryIconColor);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-submit:hover {
+  background-color: var(--primaryIconColorHover);
+}
+
+/* Contact Section - Right Side */
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-item-icon {
+  background: var(--thirdBackgroundColor);
+  /* padding: 0.8rem 1rem; */
+  width: 53px;
+  height: 53px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item-icon svg {
+  fill: var(--primaryIconColor);
+}
+
+.contact-item-detail h4 {
+  margin-bottom: 0.6rem;
+}
+
+/* Footer Section */
+footer {
+  padding: 4rem 0;
+  background: var(--secondaryBackgroundColor);
+  text-align: center;
+}
+
+.footer-icons {
+  margin-bottom: 1rem;
+}
+
+.footer-icons a {
+  margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+  fill: #3e3f40;
+}
+
+.footer-icons a:hover svg {
+  fill: #000;
+}
+/* Style untuk checklist horizontal */
+/* ... semua style CSS kamu sebelumnya ... */
+
+/* Style untuk layout detail portfolio (artikel dengan sidebar) */
+.detail-container {
+  max-width: 1200px;
+  margin: 2rem auto; /* Tambah margin atas bawah */
+  padding: 20px;
+  background: var(--primaryBackgroundColor); /* Optional background */
+  border-radius: var(--itemBorderRadius); /* Optional rounded corners */
+  box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Optional shadow */
+}
+
+.project-header {
+  margin-bottom: 2rem;
+  text-align: center; /* Center judul dan meta */
+}
+
+.project-title {
+  font-size: 2.5rem; /* Lebih besar dari sebelumnya */
+  margin-bottom: 0.5rem;
+}
+
+.project-meta {
+  color: var(--secondaryTextColor);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.project-main-image {
+  width: 100%;
+  border-radius: var(--itemBorderRadius);
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.project-body {
+  display: flex;
+  gap: 30px;
+  padding: 20px 0; /* Tambah padding dalam body */
+}
+
+.project-main-content {
+  flex: 2; /* Lebih lebar untuk konten utama */
+  min-width: 60%;
+}
+
+.project-detail-image {
+  width: 80%; /* Ukuran gambar detail dalam konten */
+  border-radius: var(--itemBorderRadius);
+  object-fit: cover;
+  margin: 1.5rem auto; /* Center gambar detail */
+  display: block;
+}
+
+.project-sidebar {
+  flex: 1; /* Lebih kecil untuk sidebar */
+  min-width: 200px;
+  background: var(--secondaryBackgroundColor); /* Background berbeda untuk menonjolkan */
+  padding: 20px;
+  border-radius: var(--itemBorderRadius);
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.project-sidebar .sidebar-item {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.project-sidebar .sidebar-item strong {
+  font-weight: 500;
+  color: var(--primaryTextColor);
+}
+
+.project-sidebar .divider {
+  margin: 2rem 0;
+  border-top: 1px solid var(--borderColor);
+  border-bottom: none;
+  height: auto;
+  background: none;
+}
+
+.other-projects {
+  text-align: left; /* Tombol proyek lain di kiri */
+  margin-top: 2rem;
+}
+
+/* Style untuk checklist horizontal */
+/* Style untuk checklist horizontal */
+.checklist-horizontal {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Jarak antar item */
+    align-items: center; /* Vertikal align tengah */
+}
+
+.checklist-horizontal li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Hilangkan margin bawah default list */
+}
+
+.checklist-horizontal li svg {
+    width: 20px;
+    height: 20px;
+    fill: green; /* Warna centang */
+    margin-right: 0.5rem;
+    /* Hilangkan animasi hover */
+    transform: scale(1); /* Pastikan selalu muncul */
+    transition: none; /* Hilangkan transisi */
+}
+
+/* Responsive untuk layout artikel */
+@media (max-width: 960px) {
+    .project-body {
+        flex-direction: column; /* Sidebar di bawah konten pada layar kecil */
+    }
+
+    .project-main-content {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .project-sidebar {
+        width: 100%;
+        min-width: auto;
+        margin-top: 2rem;
+    }
+
+    .checklist-horizontal {
+        flex-direction: column; /* Checklist jadi vertikal di layar kecil */
+        align-items: flex-start;
+    }
+
+    .checklist-horizontal li {
+        margin-bottom: 0.5rem;
+    }
+}
+/* ... Kode CSS Anda yang lain ... */
+
+.dropdown-content {
+  display: none; /* Tetap hidden secara default */
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Kelas untuk menampilkan dropdown saat diklik */
+.dropdown-content.show {
+  display: block;
+}
+/* Gaya CSS tambahan untuk project */
+.portfolio {
+  border: 1px solid var(--borderColor);
+  border-radius: var(--itemBorderRadius);
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio:hover {
+  transform: translateY(-5px) perspective(500px) rotateX(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-cover {
+  overflow: hidden;
+}
+
+.portfolio-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.portfolio:hover .portfolio-cover img {
+  transform: scale(1.05);
+}
+
+.portfolio-info {
+  padding: 15px;
+  background-color: var(--primaryBackgroundColor);
+}
+
+.portfolio-info h4 {
+  margin-top: 0;
+  color: var(--primaryTextColor);
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.portfolio-tags div {
+  background-color: var(--secondaryBackgroundColor);
+  color: var(--secondaryTextColor);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.portfolio-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primaryIconColor);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.portfolio-link:hover {
+  color: var(--primaryIconColorHover);
+}
+
+.portfolio-link svg {
+  vertical-align: middle;
+  margin-left: 5px;
+}
